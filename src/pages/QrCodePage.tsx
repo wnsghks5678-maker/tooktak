@@ -131,229 +131,223 @@ const QrCodePage = () => {
     );
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div className="hidden lg:block lg:col-span-2">
-                <AdPlaceholder id="ad-qrcode-left" width="160px" height="600px" />
+        <div className="max-w-4xl mx-auto px-4 py-8">
+            <div className="text-center mb-8">
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{t('qrCode.title')}</h1>
+                <p className="text-gray-600">{t('qrCode.subtitle')}</p>
             </div>
 
-            <div className="col-span-1 lg:col-span-8">
-                <div className="text-center mb-8">
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{t('qrCode.title')}</h1>
-                    <p className="text-gray-600">{t('qrCode.subtitle')}</p>
-                </div>
+            <div className="w-full mb-10">
+                <AdPlaceholder id="ad-qrcode-top" showCoupang={true} />
+            </div>
 
-                <AdPlaceholder id="ad-qrcode-top" className="w-full h-24 mb-6" showCoupang={true} />
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Left Column: Settings */}
-                    <div className="space-y-6">
-                        {/* Type Selection */}
-                        <div className="space-y-2">
-                            <label className="text-sm font-semibold text-gray-700">{t('qrCode.type')}</label>
-                            <div className="flex flex-wrap gap-2">
-                                <TabButton type="url" label={t('qrCode.typeUrl')} />
-                                <TabButton type="text" label={t('qrCode.typeText')} />
-                                <TabButton type="phone" label={t('qrCode.typePhone')} />
-                                <TabButton type="email" label={t('qrCode.typeEmail')} />
-                                <TabButton type="wifi" label={t('qrCode.typeWifi')} />
-                            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Left Column: Settings */}
+                <div className="space-y-6">
+                    {/* Type Selection */}
+                    <div className="space-y-2">
+                        <label className="text-sm font-semibold text-gray-700">{t('qrCode.type')}</label>
+                        <div className="flex flex-wrap gap-2">
+                            <TabButton type="url" label={t('qrCode.typeUrl')} />
+                            <TabButton type="text" label={t('qrCode.typeText')} />
+                            <TabButton type="phone" label={t('qrCode.typePhone')} />
+                            <TabButton type="email" label={t('qrCode.typeEmail')} />
+                            <TabButton type="wifi" label={t('qrCode.typeWifi')} />
                         </div>
+                    </div>
 
-                        {/* Input Fields */}
-                        <div className="space-y-4 bg-gray-50 p-4 rounded-xl border border-gray-200">
-                            <label className="text-sm font-semibold text-gray-700">{t('qrCode.inputLabel')}</label>
+                    {/* Input Fields */}
+                    <div className="space-y-4 bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <label className="text-sm font-semibold text-gray-700">{t('qrCode.inputLabel')}</label>
 
-                            {activeTab === 'url' && (
+                        {activeTab === 'url' && (
+                            <input
+                                type="text"
+                                value={inputUrl}
+                                onChange={(e) => setInputUrl(e.target.value)}
+                                placeholder={t('qrCode.urlPlaceholder')}
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                        )}
+
+                        {activeTab === 'text' && (
+                            <textarea
+                                value={inputText}
+                                onChange={(e) => setInputText(e.target.value.slice(0, 500))}
+                                placeholder={t('qrCode.textPlaceholder')}
+                                rows={4}
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                        )}
+                        {activeTab === 'text' && (
+                            <div className="text-right text-xs text-gray-400">
+                                {inputText.length} / 500
+                            </div>
+                        )}
+
+                        {activeTab === 'phone' && (
+                            <input
+                                type="tel"
+                                value={inputPhone}
+                                onChange={(e) => setInputPhone(e.target.value)}
+                                placeholder={t('qrCode.phonePlaceholder')}
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                        )}
+
+                        {activeTab === 'email' && (
+                            <input
+                                type="email"
+                                value={inputEmail}
+                                onChange={(e) => setInputEmail(e.target.value)}
+                                placeholder={t('qrCode.emailPlaceholder')}
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                        )}
+
+                        {activeTab === 'wifi' && (
+                            <div className="space-y-3">
                                 <input
                                     type="text"
-                                    value={inputUrl}
-                                    onChange={(e) => setInputUrl(e.target.value)}
-                                    placeholder={t('qrCode.urlPlaceholder')}
-                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    value={wifiSsid}
+                                    onChange={(e) => setWifiSsid(e.target.value)}
+                                    placeholder={t('qrCode.wifiSsid')}
+                                    className="w-full p-3 border border-gray-300 rounded-lg"
                                 />
-                            )}
-
-                            {activeTab === 'text' && (
-                                <textarea
-                                    value={inputText}
-                                    onChange={(e) => setInputText(e.target.value.slice(0, 500))}
-                                    placeholder={t('qrCode.textPlaceholder')}
-                                    rows={4}
-                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                />
-                            )}
-                            {activeTab === 'text' && (
-                                <div className="text-right text-xs text-gray-400">
-                                    {inputText.length} / 500
-                                </div>
-                            )}
-
-                            {activeTab === 'phone' && (
                                 <input
-                                    type="tel"
-                                    value={inputPhone}
-                                    onChange={(e) => setInputPhone(e.target.value)}
-                                    placeholder={t('qrCode.phonePlaceholder')}
-                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    type="password"
+                                    value={wifiPassword}
+                                    onChange={(e) => setWifiPassword(e.target.value)}
+                                    placeholder={t('qrCode.wifiPassword')}
+                                    className="w-full p-3 border border-gray-300 rounded-lg"
                                 />
-                            )}
+                                <select
+                                    value={wifiEncryption}
+                                    onChange={(e) => setWifiEncryption(e.target.value)}
+                                    className="w-full p-3 border border-gray-300 rounded-lg"
+                                >
+                                    <option value="WPA">WPA/WPA2</option>
+                                    <option value="WEP">WEP</option>
+                                    <option value="nopass">None</option>
+                                </select>
+                            </div>
+                        )}
+                    </div>
 
-                            {activeTab === 'email' && (
-                                <input
-                                    type="email"
-                                    value={inputEmail}
-                                    onChange={(e) => setInputEmail(e.target.value)}
-                                    placeholder={t('qrCode.emailPlaceholder')}
-                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                />
-                            )}
+                    {/* Style Settings */}
+                    <div className="space-y-4">
+                        <h3 className="text-sm font-semibold text-gray-700">{t('qrCode.style')}</h3>
 
-                            {activeTab === 'wifi' && (
-                                <div className="space-y-3">
-                                    <input
-                                        type="text"
-                                        value={wifiSsid}
-                                        onChange={(e) => setWifiSsid(e.target.value)}
-                                        placeholder={t('qrCode.wifiSsid')}
-                                        className="w-full p-3 border border-gray-300 rounded-lg"
-                                    />
-                                    <input
-                                        type="password"
-                                        value={wifiPassword}
-                                        onChange={(e) => setWifiPassword(e.target.value)}
-                                        placeholder={t('qrCode.wifiPassword')}
-                                        className="w-full p-3 border border-gray-300 rounded-lg"
-                                    />
-                                    <select
-                                        value={wifiEncryption}
-                                        onChange={(e) => setWifiEncryption(e.target.value)}
-                                        className="w-full p-3 border border-gray-300 rounded-lg"
-                                    >
-                                        <option value="WPA">WPA/WPA2</option>
-                                        <option value="WEP">WEP</option>
-                                        <option value="nopass">None</option>
-                                    </select>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Style Settings */}
-                        <div className="space-y-4">
-                            <h3 className="text-sm font-semibold text-gray-700">{t('qrCode.style')}</h3>
-
-                            {/* Size */}
-                            <div className="flex gap-2">
-                                <span className="text-sm text-gray-500 w-16 py-2">{t('qrCode.size')}</span>
-                                {[200, 300, 400, 500].map((s) => (
-                                    <button
-                                        key={s}
-                                        onClick={() => setWidth(s)}
-                                        className={`
+                        {/* Size */}
+                        <div className="flex gap-2">
+                            <span className="text-sm text-gray-500 w-16 py-2">{t('qrCode.size')}</span>
+                            {[200, 300, 400, 500].map((s) => (
+                                <button
+                                    key={s}
+                                    onClick={() => setWidth(s)}
+                                    className={`
                                             px-3 py-1 rounded text-sm transition-colors
                                             ${width === s ? 'bg-blue-600 text-white' : 'bg-gray-100 hover:bg-gray-200'}
                                         `}
-                                    >
-                                        {s}px
-                                    </button>
-                                ))}
-                            </div>
-
-                            {/* Colors */}
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="flex flex-col gap-1">
-                                    <label className="text-xs text-gray-500">{t('qrCode.fgColor')}</label>
-                                    <div className="flex items-center gap-2">
-                                        <input
-                                            type="color"
-                                            value={colorDark}
-                                            onChange={(e) => setColorDark(e.target.value)}
-                                            className="w-10 h-10 rounded cursor-pointer border-0"
-                                        />
-                                        <span className="text-sm font-mono text-gray-600">{colorDark}</span>
-                                    </div>
-                                </div>
-                                <div className="flex flex-col gap-1">
-                                    <label className="text-xs text-gray-500">{t('qrCode.bgColor')}</label>
-                                    <div className="flex items-center gap-2">
-                                        <input
-                                            type="color"
-                                            value={colorLight}
-                                            onChange={(e) => setColorLight(e.target.value)}
-                                            className="w-10 h-10 rounded cursor-pointer border-0"
-                                        />
-                                        <span className="text-sm font-mono text-gray-600">{colorLight}</span>
-                                    </div>
-                                </div>
-                            </div>
+                                >
+                                    {s}px
+                                </button>
+                            ))}
                         </div>
-                    </div>
 
-                    {/* Right Column: Preview */}
-                    <div className="md:col-start-2">
-                        <div className="sticky top-24 bg-white rounded-xl shadow-lg border border-gray-100 p-6 flex flex-col items-center">
-                            <h3 className="text-lg font-bold text-gray-800 mb-4 self-start">{t('qrCode.preview')}</h3>
-
-                            <div className="w-full flex items-center justify-center min-h-[300px] bg-gray-50 rounded-lg mb-6 border-2 border-dashed border-gray-200">
-                                {isGenerating ? (
-                                    <div className="flex flex-col items-center text-gray-400 animate-pulse">
-                                        <span className="text-4xl mb-2">⚡</span>
-                                        <span>{t('qrCode.generating')}</span>
-                                    </div>
-                                ) : generatedQr ? (
-                                    <img
-                                        src={generatedQr.png}
-                                        alt="QR Code"
-                                        className="max-w-full h-auto shadow-sm rounded-lg border border-gray-200"
-                                        style={{ maxWidth: '280px' }}
+                        {/* Colors */}
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="flex flex-col gap-1">
+                                <label className="text-xs text-gray-500">{t('qrCode.fgColor')}</label>
+                                <div className="flex items-center gap-2">
+                                    <input
+                                        type="color"
+                                        value={colorDark}
+                                        onChange={(e) => setColorDark(e.target.value)}
+                                        className="w-10 h-10 rounded cursor-pointer border-0"
                                     />
-                                ) : (
-                                    <div className="text-center text-gray-400 p-4">
-                                        <span className="text-4xl block mb-2">📱</span>
-                                        {t('qrCode.inputPlaceholder')}
-                                    </div>
-                                )}
+                                    <span className="text-sm font-mono text-gray-600">{colorDark}</span>
+                                </div>
                             </div>
-
-                            <div className="flex gap-3 w-full">
-                                <button
-                                    onClick={() => handleDownload('png')}
-                                    disabled={!generatedQr}
-                                    className="flex-1 bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition shadow-md font-medium"
-                                >
-                                    {t('qrCode.downloadPng')}
-                                </button>
-                                <button
-                                    onClick={() => handleDownload('svg')}
-                                    disabled={!generatedQr}
-                                    className="flex-1 bg-gray-700 text-white py-2.5 rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition shadow-md font-medium"
-                                >
-                                    {t('qrCode.downloadSvg')}
-                                </button>
+                            <div className="flex flex-col gap-1">
+                                <label className="text-xs text-gray-500">{t('qrCode.bgColor')}</label>
+                                <div className="flex items-center gap-2">
+                                    <input
+                                        type="color"
+                                        value={colorLight}
+                                        onChange={(e) => setColorLight(e.target.value)}
+                                        className="w-10 h-10 rounded cursor-pointer border-0"
+                                    />
+                                    <span className="text-sm font-mono text-gray-600">{colorLight}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <AdPlaceholder id="ad-qrcode-bottom" className="w-full h-24 mt-8" showCoupang={true} />
+                {/* Right Column: Preview */}
+                <div className="md:col-start-2">
+                    <div className="sticky top-24 bg-white rounded-xl shadow-lg border border-gray-100 p-6 flex flex-col items-center">
+                        <h3 className="text-lg font-bold text-gray-800 mb-4 self-start">{t('qrCode.preview')}</h3>
 
-                {/* FAQ */}
-                <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mt-8">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">{t('qrCode.faqTitle')}</h3>
-                    <div className="space-y-4">
-                        {[1, 2, 3].map(num => (
-                            <div key={num}>
-                                <h4 className="font-semibold text-gray-800 mb-1">Q. {t(`qrCode.faq${num}q`)}</h4>
-                                <p className="text-gray-600 text-sm leading-relaxed">{t(`qrCode.faq${num}a`)}</p>
-                            </div>
-                        ))}
+                        <div className="w-full flex items-center justify-center min-h-[300px] bg-gray-50 rounded-lg mb-6 border-2 border-dashed border-gray-200">
+                            {isGenerating ? (
+                                <div className="flex flex-col items-center text-gray-400 animate-pulse">
+                                    <span className="text-4xl mb-2">⚡</span>
+                                    <span>{t('qrCode.generating')}</span>
+                                </div>
+                            ) : generatedQr ? (
+                                <img
+                                    src={generatedQr.png}
+                                    alt="QR Code"
+                                    className="max-w-full h-auto shadow-sm rounded-lg border border-gray-200"
+                                    style={{ maxWidth: '280px' }}
+                                />
+                            ) : (
+                                <div className="text-center text-gray-400 p-4">
+                                    <span className="text-4xl block mb-2">📱</span>
+                                    {t('qrCode.inputPlaceholder')}
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="flex gap-3 w-full">
+                            <button
+                                onClick={() => handleDownload('png')}
+                                disabled={!generatedQr}
+                                className="flex-1 bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition shadow-md font-medium"
+                            >
+                                {t('qrCode.downloadPng')}
+                            </button>
+                            <button
+                                onClick={() => handleDownload('svg')}
+                                disabled={!generatedQr}
+                                className="flex-1 bg-gray-700 text-white py-2.5 rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition shadow-md font-medium"
+                            >
+                                {t('qrCode.downloadSvg')}
+                            </button>
+                        </div>
                     </div>
                 </div>
-
             </div>
 
-            <div className="hidden lg:block lg:col-span-2">
-                <AdPlaceholder id="ad-qrcode-right" width="160px" height="600px" />
+            <div className="w-full mt-10">
+                <AdPlaceholder id="ad-qrcode-bottom" showCoupang={true} />
             </div>
+
+            {/* FAQ */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mt-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{t('qrCode.faqTitle')}</h3>
+                <div className="space-y-4">
+                    {[1, 2, 3].map(num => (
+                        <div key={num}>
+                            <h4 className="font-semibold text-gray-800 mb-1">Q. {t(`qrCode.faq${num}q`)}</h4>
+                            <p className="text-gray-600 text-sm leading-relaxed">{t(`qrCode.faq${num}a`)}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
         </div>
     );
 };

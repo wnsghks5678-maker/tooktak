@@ -110,21 +110,17 @@ const PdfCompressPage = () => {
     );
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {/* Left Ad */}
-            <div className="hidden lg:block lg:col-span-2">
-                <AdPlaceholder id="ad-pdfcompress-left" width="160px" height="600px" />
+        <div className="max-w-4xl mx-auto px-4 py-8">
+            <div className="text-center space-y-2 mb-8">
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{t('pdfCompress.title')}</h1>
+                <p className="text-gray-600">{t('pdfCompress.subtitle')}</p>
             </div>
 
-            {/* Main Content */}
-            <div className="col-span-1 lg:col-span-8 space-y-8">
-                <div className="text-center space-y-2">
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{t('pdfCompress.title')}</h1>
-                    <p className="text-gray-600">{t('pdfCompress.subtitle')}</p>
-                </div>
+            <div className="w-full mb-10">
+                <AdPlaceholder id="ad-pdfcompress-top" showCoupang={true} />
+            </div>
 
-                <AdPlaceholder id="ad-pdfcompress-top" className="w-full h-24 mb-6" showCoupang={true} />
-
+            <div className="space-y-8">
                 {/* File Uploader */}
                 <FileUploader
                     acceptFormats="application/pdf,.pdf"
@@ -246,7 +242,7 @@ const PdfCompressPage = () => {
                     </div>
                 )}
 
-                <AdPlaceholder id="ad-pdfcompress-bottom" className="w-full h-24 mt-6" showCoupang={true} />
+
 
                 {/* FAQ */}
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
@@ -262,9 +258,8 @@ const PdfCompressPage = () => {
                 </div>
             </div>
 
-            {/* Right Ad */}
-            <div className="hidden lg:block lg:col-span-2">
-                <AdPlaceholder id="ad-pdfcompress-right" width="160px" height="600px" />
+            <div className="w-full mt-10">
+                <AdPlaceholder id="ad-pdfcompress-bottom" showCoupang={true} />
             </div>
         </div>
     );

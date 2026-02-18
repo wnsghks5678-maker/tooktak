@@ -100,7 +100,7 @@
         },
         "convert": {
             "title": "图片转换",
-            "desc": "PNG, JPG, WEBP 格式转换"
+            "desc": "支持 JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC"
         },
         "resize": {
             "title": "调整图片大小",

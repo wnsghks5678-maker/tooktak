@@ -100,7 +100,7 @@
         },
         "convert": {
             "title": "画像変換",
-            "desc": "PNG、JPG、WEBP間の変換"
+            "desc": "JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC 対応"
         },
         "resize": {
             "title": "画像サイズ変更",

@@ -100,7 +100,7 @@
     },
     "convert": {
       "title": "이미지 변환",
-      "desc": "PNG, JPG, WEBP 간 변환"
+      "desc": "JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC 지원"
     },
     "resize": {
       "title": "이미지 크기 조절",

@@ -100,7 +100,7 @@
         },
         "convert": {
             "title": "Image Conversion",
-            "desc": "Convert between PNG, JPG, WEBP"
+            "desc": "JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC supported"
         },
         "resize": {
             "title": "Image Resize",
