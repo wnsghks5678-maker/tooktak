@@ -1,4 +1,5 @@
 import { removeBackground as imglyRemoveBackground } from '@imgly/background-removal';
+import type { Config } from '@imgly/background-removal';
 
 export async function removeBackground(
     file: File,
@@ -7,8 +8,9 @@ export async function removeBackground(
     const imageUrl = URL.createObjectURL(file);
 
     try {
-        const result = await imglyRemoveBackground(imageUrl, {
-            model: 'isnet_fp16',
+        const config: Partial<Config> = {
+            publicPath: 'https://staticimgly.com/@imgly/background-removal-data/1.7.0/dist/',
+            model: 'isnet_fp16' as any,
             progress: (_key: string, current: number, total: number) => {
                 if (onProgress && total > 0) {
                     const percent = Math.round((current / total) * 100);
@@ -16,11 +18,12 @@ export async function removeBackground(
                 }
             },
             output: {
-                format: 'image/png',
+                format: 'image/png' as const,
                 quality: 0.9
             }
-        });
+        };
 
+        const result = await imglyRemoveBackground(imageUrl, config as Config);
         return result;
     } finally {
         URL.revokeObjectURL(imageUrl);
@@ -54,7 +57,6 @@ export async function addColorBackground(
             ctx.fillStyle = color;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, 0, 0);
-
             URL.revokeObjectURL(url);
 
             canvas.toBlob(
