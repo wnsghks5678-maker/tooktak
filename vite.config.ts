@@ -1,20 +1,23 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    include: ['pdfjs-dist']
+    include: ['pdfjs-dist'],
+    exclude: ['onnxruntime-web']
   },
   build: {
     rollupOptions: {
-      external: ['onnxruntime-web', 'onnxruntime-web/webgpu'],
+      external: ['onnxruntime-web/webgpu'],
       output: {
         manualChunks: {
           pdfjs: ['pdfjs-dist']
         }
       }
     }
+  },
+  worker: {
+    format: 'es'
   }
 })

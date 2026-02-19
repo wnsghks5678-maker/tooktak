@@ -48,30 +48,17 @@ export async function addColorBackground(
             canvas.width = img.width;
             canvas.height = img.height;
             const ctx = canvas.getContext('2d');
-
-            if (!ctx) {
-                reject(new Error('Could not get canvas context'));
-                return;
-            }
-
+            if (!ctx) { reject(new Error('No canvas context')); return; }
             ctx.fillStyle = color;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, 0, 0);
             URL.revokeObjectURL(url);
-
             canvas.toBlob(
-                blob => {
-                    if (blob) resolve(blob);
-                    else reject(new Error('Canvas to Blob failed'));
-                },
-                format,
-                0.92
+                blob => { if (blob) resolve(blob); else reject(new Error('toBlob failed')); },
+                format, 0.92
             );
         };
-        img.onerror = () => {
-            URL.revokeObjectURL(url);
-            reject(new Error('Failed to load image'));
-        };
+        img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Image load failed')); };
         img.src = url;
     });
 }
