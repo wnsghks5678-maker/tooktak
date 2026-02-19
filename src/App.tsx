@@ -1,4 +1,5 @@
 import { Suspense, lazy } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -63,14 +64,16 @@ function AppContent() {
   );
 }
 
-function App() {
+const App = () => {
   return (
     <LanguageProvider>
-      <BrowserRouter>
-        <AppContent />
-      </BrowserRouter>
+      <HelmetProvider>
+        <BrowserRouter>
+          <AppContent />
+        </BrowserRouter>
+      </HelmetProvider>
     </LanguageProvider>
   );
-}
+};
 
 export default App;

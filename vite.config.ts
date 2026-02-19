@@ -9,6 +9,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
+      external: ['onnxruntime-web/webgpu', 'onnxruntime-web'],
       output: {
         manualChunks: {
           pdfjs: ['pdfjs-dist']

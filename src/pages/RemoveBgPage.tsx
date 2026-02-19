@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../i18n';
 import AdPlaceholder from '../components/AdPlaceholder';
 import FileUploader from '../components/FileUploader';
@@ -127,6 +128,12 @@ const RemoveBgPage = () => {
 
     return (
         <div className="flex flex-col min-h-screen bg-white">
+            <Helmet>
+                <title>{locale === 'ko' ? '배경 제거 - 이미지 누끼 따기, 배경색 변경 | 뚝딱' : 'Remove Background - Transparent Background Remover | TookTak'}</title>
+                <meta name="description" content={locale === 'ko' ? 'AI가 자동으로 이미지 배경을 제거해줍니다. 투명 배경, 흰색 배경, 원하는 색상으로 변경 가능. 무료, 로그인 필요 없음.' : 'AI automatically removes image backgrounds. Make background transparent, white, or custom color. Free, no login required.'} />
+                <meta property="og:url" content="https://tooktak.pages.dev/remove-bg" />
+                <link rel="canonical" href="https://tooktak.pages.dev/remove-bg" />
+            </Helmet>
 
             <main className="flex-grow pt-24 pb-16 px-4">
                 <div className="max-w-4xl mx-auto">
@@ -298,6 +305,15 @@ const RemoveBgPage = () => {
                                 </div>
                             ))}
                         </div>
+                    </div>
+
+                    <div className="bg-gray-50 rounded-2xl p-6 mt-8">
+                        <h3 className="text-lg font-bold text-gray-800 mb-3">{locale === 'ko' ? '배경 제거란?' : 'What is Background Removal?'}</h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                            {locale === 'ko'
+                                ? '배경 제거 도구는 AI 기술을 사용하여 이미지에서 인물, 사물, 동물을 인식하고 배경만 자동으로 지워주는 서비스입니다. 투명한 배경(PNG)으로 저장하거나 흰색, 빨강, 파랑 등 원하는 색상으로 배경을 변경할 수 있습니다. 증명사진, 상품 상세페이지, SNS 콘텐츠 제작에 유용합니다.'
+                                : 'The background removal tool uses AI to automatically detect subjects and remove the background. You can save as a transparent PNG or replace the background with white or any custom color. Perfect for ID photos, product images, and social media content.'}
+                        </p>
                     </div>
 
                     <div className="w-full mt-10">

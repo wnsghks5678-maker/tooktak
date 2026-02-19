@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../i18n';
 import AdPlaceholder from '../components/AdPlaceholder';
 import FileUploader from '../components/FileUploader';
@@ -111,6 +112,13 @@ const PdfCompressPage = () => {
 
     return (
         <div className="max-w-4xl mx-auto px-4 py-8">
+            <Helmet>
+                <title>{locale === 'ko' ? 'PDF 압축 - 파일 용량 줄이기 및 최적화 | 뚝딱' : 'Compress PDF - Reduce PDF File Size | TookTak'}</title>
+                <meta name="description" content={locale === 'ko' ? 'PDF 파일 용량을 효과적으로 줄여보세요. 3단계 압축 옵션, 품질 유지. 무료, 브라우저에서 바로 처리.' : 'Reduce PDF file size efficiently. 3 compression levels, high quality. Free, browser-based.'} />
+                <meta property="og:url" content="https://tooktak.pages.dev/pdf-compress" />
+                <link rel="canonical" href="https://tooktak.pages.dev/pdf-compress" />
+            </Helmet>
+
             <div className="text-center space-y-2 mb-8">
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{t('pdfCompress.title')}</h1>
                 <p className="text-gray-600">{t('pdfCompress.subtitle')}</p>
@@ -256,6 +264,16 @@ const PdfCompressPage = () => {
                         ))}
                     </div>
                 </div>
+
+                <div className="bg-gray-50 rounded-2xl p-6 mt-8">
+                    <h3 className="text-lg font-bold text-gray-800 mb-3">{locale === 'ko' ? 'PDF 압축이란?' : 'What is PDF Compression?'}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                        {locale === 'ko'
+                            ? 'PDF 압축은 파일의 품질을 최대한 유지하면서 용량을 줄이는 기술입니다. 뚝딱은 3가지 압축 옵션(낮음, 중간, 높음)을 제공하여 용도에 맞게 선택할 수 있습니다. 100% 브라우저에서 처리되어 파일이 서버로 전송되지 않으며, 여러 파일을 한 번에 압축할 수도 있습니다.'
+                            : 'PDF compression reduces file size while maintaining quality. TookTak offers 3 compression levels (Low, Medium, High). It processes 100% in your browser, keeping your files safe from server uploads, and supports batch compression.'}
+                    </p>
+                </div>
+
             </div>
 
             <div className="w-full mt-10">

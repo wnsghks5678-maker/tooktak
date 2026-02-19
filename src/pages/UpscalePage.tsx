@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../i18n';
 import AdPlaceholder from '../components/AdPlaceholder';
 import FileUploader from '../components/FileUploader';
@@ -95,6 +96,12 @@ const UpscalePage = () => {
 
     return (
         <div className="flex flex-col min-h-screen bg-white">
+            <Helmet>
+                <title>{locale === 'ko' ? '이미지 업스케일링 - 사진 해상도 높이기, 화질 개선 | 뚝딱' : 'Image Upscaler - Increase Image Resolution & Quality | TookTak'}</title>
+                <meta name="description" content={locale === 'ko' ? 'AI 기술로 이미지 해상도를 2배, 3배, 4배까지 높여보세요. 깨진 사진 복원, 선명한 화질 개선. 무료, 로그인 필요 없음.' : 'Upscale images up to 4x with AI. Restore blurry photos and improve quality. Free, no login required.'} />
+                <meta property="og:url" content="https://tooktak.pages.dev/upscale" />
+                <link rel="canonical" href="https://tooktak.pages.dev/upscale" />
+            </Helmet>
 
             <main className="flex-grow pt-24 pb-16 px-4">
                 <div className="max-w-4xl mx-auto">
@@ -265,6 +272,15 @@ const UpscalePage = () => {
                                 </div>
                             ))}
                         </div>
+                    </div>
+
+                    <div className="bg-gray-50 rounded-2xl p-6 mt-8">
+                        <h3 className="text-lg font-bold text-gray-800 mb-3">{locale === 'ko' ? '이미지 업스케일링이랑?' : 'What is Image Upscaling?'}</h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                            {locale === 'ko'
+                                ? '이미지 업스케일링은 저해상도 이미지의 품질을 잃지 않고 크기를 키우는 기술입니다. 뚝딱은 최신 AI 알고리즘을 사용하여 이미지를 분석하고 픽셀을 보간하여 선명하게 확대합니다. 작은 이미지를 인쇄용으로 만들거나 옛날 사진의 화질을 개선할 때 유용합니다.'
+                                : 'Image upscaling increases image size without losing quality. TookTak uses advanced AI algorithms to analyze the image and interpolate pixels for a sharp, high-resolution result. Perfect for enlarging small images for print or restoring old photos.'}
+                        </p>
                     </div>
 
                     <div className="w-full mt-10">

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../i18n';
 import AdPlaceholder from '../components/AdPlaceholder';
 import FileUploader from '../components/FileUploader';
@@ -155,6 +156,13 @@ const PdfMergePage = () => {
 
     return (
         <div className="container mx-auto px-4 py-8 max-w-4xl">
+            <Helmet>
+                <title>{locale === 'ko' ? 'PDF 합치기 - 여러 PDF 파일 하나로 합치기 | 뚝딱' : 'Merge PDF - Combine Multiple PDF Files | TookTak'}</title>
+                <meta name="description" content={locale === 'ko' ? '여러 PDF 파일을 하나로 합쳐보세요. 드래그로 순서 변경, 페이지 선택 가능. 무료, 서버 업로드 없음.' : 'Merge multiple PDF files into one. Drag to reorder, select pages. Free, no server upload.'} />
+                <meta property="og:url" content="https://tooktak.pages.dev/pdf-merge" />
+                <link rel="canonical" href="https://tooktak.pages.dev/pdf-merge" />
+            </Helmet>
+
             <h1 className="text-3xl font-bold text-center text-gray-900 mb-2">{t('pdfMerge.title')}</h1>
             <p className="text-center text-gray-600 mb-8">{t('pdfMerge.subtitle')}</p>
 
@@ -338,6 +346,15 @@ const PdfMergePage = () => {
                             <p className="text-gray-600 text-sm">{t('pdfMerge.faq3a')}</p>
                         </div>
                     </div>
+                </div>
+
+                <div className="bg-gray-50 rounded-2xl p-6 mt-8">
+                    <h3 className="text-lg font-bold text-gray-800 mb-3">{locale === 'ko' ? 'PDF 합치기란?' : 'What is PDF Merging?'}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                        {locale === 'ko'
+                            ? 'PDF 합치기는 여러 개의 PDF 파일을 하나의 파일로 결합하는 기능입니다. 뚝딱에서는 최대 20개의 PDF 파일을 한 번에 합칠 수 있으며, 드래그 앤 드롭으로 순서를 변경하고 특정 페이지만 선택하여 합칠 수도 있습니다. 모든 처리가 브라우저에서 이루어지므로 파일이 서버에 업로드되지 않아 기밀 문서도 안전하게 합칠 수 있습니다.'
+                            : 'PDF merging combines multiple PDF files into a single document. TookTak lets you merge up to 20 PDFs at once, drag and drop to reorder, and select specific pages. All processing happens in your browser — no server upload — so confidential documents stay safe.'}
+                    </p>
                 </div>
 
             </div>

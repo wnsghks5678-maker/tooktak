@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import AdPlaceholder from '../components/AdPlaceholder';
 import FileUploader from '../components/FileUploader';
 import ResultCard from '../components/ResultCard';
@@ -73,6 +74,14 @@ const CompressPage = () => {
 
     return (
         <div className="max-w-3xl mx-auto px-4 py-8">
+            <Helmet>
+                <title>{locale === 'ko' ? '이미지 압축 - JPG, PNG, WEBP 용량 줄이기 | 뚝딱' : 'Image Compression - Reduce JPG, PNG, WEBP Size | TookTak'}</title>
+                <meta name="description" content={locale === 'ko' ? 'JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC 이미지를 무료로 압축하세요. 서버 업로드 없이 브라우저에서 바로 처리. 최대 80% 용량 절감.' : 'Compress JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC images for free. Browser-based, no server upload. Up to 80% size reduction.'} />
+                <meta property="og:title" content={locale === 'ko' ? '무료 이미지 압축 - 사진 용량 줄이기' : 'Free Image Compression'} />
+                <meta property="og:url" content="https://tooktak.pages.dev/compress" />
+                <link rel="canonical" href="https://tooktak.pages.dev/compress" />
+            </Helmet>
+
             <div className="text-center mb-10">
                 <h1 className="text-2xl md:text-3xl font-bold text-[#1E3A5F] mb-2">{t('compress.title')}</h1>
                 <p className="text-sm md:text-base text-gray-500">
@@ -80,7 +89,6 @@ const CompressPage = () => {
                 </p>
             </div>
 
-            {/* Top Ad */}
             {/* Top Ad */}
             <div className="w-full mb-10">
                 <AdPlaceholder id="ad-compress-top" showCoupang={true} />
@@ -265,6 +273,15 @@ const CompressPage = () => {
                             A: {t('compress.faq3a')}
                         </p>
                     </div>
+                </div>
+
+                <div className="bg-gray-50 rounded-2xl p-6 mt-8">
+                    <h3 className="text-lg font-bold text-gray-800 mb-3">{locale === 'ko' ? '온라인 이미지 압축이란?' : 'What is Online Image Compression?'}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                        {locale === 'ko'
+                            ? '온라인 이미지 압축은 JPG, PNG, WEBP 등의 이미지 파일 용량을 줄여주는 도구입니다. 뚝딱의 이미지 압축 도구는 브라우저에서 직접 처리되므로 파일이 서버에 업로드되지 않아 개인정보가 안전합니다. 블로그, 쇼핑몰, SNS에 올릴 사진의 용량을 줄여 페이지 로딩 속도를 개선하고, 저장 공간을 절약할 수 있습니다. JPG 용량 줄이기, PNG 압축, WEBP 변환 등 다양한 포맷을 지원하며, 화질 저하 없이 최대 80%까지 파일 크기를 줄일 수 있습니다.'
+                            : 'Online image compression reduces the file size of JPG, PNG, WEBP and other image formats. TookTak processes everything in your browser — no files are uploaded to any server, keeping your data private. Reduce photo sizes for blogs, e-commerce, and social media to improve page load speed and save storage. Supports JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC with up to 80% size reduction without visible quality loss.'}
+                    </p>
                 </div>
 
                 <div className="w-full mt-10">

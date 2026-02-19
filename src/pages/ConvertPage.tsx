@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import AdPlaceholder from '../components/AdPlaceholder';
 import FileUploader from '../components/FileUploader';
 import ResultCard from '../components/ResultCard';
@@ -65,6 +66,14 @@ const ConvertPage = () => {
 
     return (
         <div className="max-w-3xl mx-auto px-4 py-8">
+            <Helmet>
+                <title>{locale === 'ko' ? '이미지 변환 - JPG, PNG, WEBP, HEIC, AVIF 변환 | 뚝딱' : 'Image Converter - JPG, PNG, WEBP, HEIC, AVIF | TookTak'}</title>
+                <meta name="description" content={locale === 'ko' ? 'JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC 간 무료 이미지 포맷 변환. 아이폰 HEIC 파일도 JPG로 쉽게 변환. 브라우저에서 바로 처리.' : 'Convert between JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC for free. Convert iPhone HEIC to JPG easily. Browser-based.'} />
+                <meta property="og:title" content={locale === 'ko' ? '무료 이미지 변환 - HEIC to JPG' : 'Free Image Converter'} />
+                <meta property="og:url" content="https://tooktak.pages.dev/convert" />
+                <link rel="canonical" href="https://tooktak.pages.dev/convert" />
+            </Helmet>
+
             <div className="text-center mb-10">
                 <h1 className="text-2xl md:text-3xl font-bold text-[#1E3A5F] mb-2">{t('convert.title')}</h1>
                 <p className="text-sm md:text-base text-gray-500">
@@ -211,6 +220,15 @@ const ConvertPage = () => {
                             A: {t('convert.faq3a')}
                         </p>
                     </div>
+                </div>
+
+                <div className="bg-gray-50 rounded-2xl p-6 mt-8">
+                    <h3 className="text-lg font-bold text-gray-800 mb-3">{locale === 'ko' ? '온라인 이미지 변환이란?' : 'What is Online Image Conversion?'}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                        {locale === 'ko'
+                            ? '이미지 변환 도구를 사용하면 JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC 등 다양한 포맷 간에 자유롭게 변환할 수 있습니다. 특히 아이폰에서 촬영한 HEIC 파일을 JPG나 PNG로 변환하는 기능이 많이 사용됩니다. 뚝딱은 모든 변환을 브라우저에서 처리하여 서버 업로드 없이 안전하게 이용할 수 있으며, 높은 품질을 유지하면서 빠르게 변환됩니다.'
+                            : 'The image converter lets you freely convert between JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, and HEIC formats. Converting iPhone HEIC photos to JPG or PNG is especially popular. TookTak processes all conversions in your browser with no server upload, ensuring privacy while maintaining high quality and fast speed.'}
+                    </p>
                 </div>
 
                 <div className="w-full mt-10">

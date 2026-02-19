@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useTranslation } from '../i18n';
+import { Helmet } from 'react-helmet-async';
 import AdPlaceholder from '../components/AdPlaceholder';
 import ToolCard from '../components/ToolCard';
 import { updateSEO } from '../utils/seo';
@@ -81,6 +82,16 @@ const HomePage = () => {
 
     return (
         <div className="w-full">
+            <Helmet>
+                <title>{locale === 'ko' ? '뚝딱 - 무료 온라인 이미지 압축, 변환, PDF 도구' : 'TookTak - Free Online Image Compression, Conversion & PDF Tools'}</title>
+                <meta name="description" content={locale === 'ko' ? '이미지 압축, 포맷 변환, 크기 조절, PDF 합치기, 나누기, 압축, QR코드 생성까지. 100% 무료, 브라우저에서 바로 처리. 서버 업로드 없이 안전하게.' : 'Compress, convert, resize images. Merge, split, compress PDFs. Generate QR codes. 100% free, browser-based. No server upload.'} />
+                <meta property="og:title" content={locale === 'ko' ? '뚝딱 - 무료 온라인 이미지 & PDF 도구' : 'TookTak - Free Online Image & PDF Tools'} />
+                <meta property="og:description" content={locale === 'ko' ? '이미지 압축, 변환, PDF 편집 등 무료 온라인 도구' : 'Free online tools for images and PDFs'} />
+                <meta property="og:url" content="https://tooktak.pages.dev/" />
+                <meta property="og:type" content="website" />
+                <link rel="canonical" href="https://tooktak.pages.dev/" />
+            </Helmet>
+
             {/* Top Ad */}
             <div className="w-full mb-10">
                 <AdPlaceholder id="home-top" showCoupang={true} />
@@ -117,6 +128,16 @@ const HomePage = () => {
                         ))}
                     </div>
                 </div>
+            </div>
+
+            {/* SEO Text Section */}
+            <div className="bg-gray-50 rounded-2xl p-6 mt-12">
+                <h2 className="text-lg font-bold text-gray-800 mb-3">{locale === 'ko' ? '뚝딱 - 무료 온라인 파일 도구' : 'TookTak - Free Online File Tools'}</h2>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                    {locale === 'ko'
+                        ? '뚝딱은 이미지 압축, 이미지 포맷 변환, 이미지 크기 조절, PDF 합치기, PDF 나누기, PDF 압축, QR코드 생성, AI 배경 제거, AI 화질 개선 등 다양한 무료 온라인 도구를 제공합니다. 모든 파일은 사용자의 브라우저에서 직접 처리되어 서버에 업로드되지 않으므로 개인정보가 안전하게 보호됩니다. 회원가입 없이 누구나 무료로 이용할 수 있으며, JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC 등 다양한 이미지 포맷을 지원합니다.'
+                        : 'TookTak provides free online tools including image compression, format conversion, resizing, PDF merge, split, compress, QR code generation, AI background removal, and AI image upscaling. All files are processed directly in your browser — never uploaded to any server — ensuring complete privacy. No signup required, supporting JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC and more.'}
+                </p>
             </div>
 
             {/* Bottom Ad */}
