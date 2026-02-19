@@ -13,91 +13,34 @@ const HomePage = () => {
     }, [locale]);
 
     const tools = [
-        {
-            icon: "🗜️",
-            titleKey: 'tools.compress.title',
-            descKey: 'tools.compress.desc',
-            link: "/compress",
-            isComingSoon: false
-        },
-        {
-            icon: "🔄",
-            titleKey: 'tools.convert.title',
-            descKey: 'tools.convert.desc',
-            link: "/convert",
-            isComingSoon: false
-        },
-        {
-            icon: "📐",
-            titleKey: 'tools.resize.title',
-            descKey: 'tools.resize.desc',
-            link: "/resize",
-            isComingSoon: false
-        },
-        {
-            id: 'pdfMerge',
-            icon: '📄',
-            titleKey: 'tools.pdfMerge.title',
-            descKey: 'tools.pdfMerge.desc',
-            link: '/pdf-merge',
-            color: 'bg-red-50 text-red-600'
-        },
-        {
-            id: 'pdfSplit',
-            icon: '✂️',
-            titleKey: 'tools.pdfSplit.title',
-            descKey: 'tools.pdfSplit.desc',
-            link: '/pdf-split',
-            color: 'bg-orange-50 text-orange-600'
-        },
-        {
-            icon: "📦",
-            titleKey: 'tools.pdfCompress.title',
-            descKey: 'tools.pdfCompress.desc',
-            link: "/pdf-compress",
-            isComingSoon: false
-        },
-        {
-            icon: "✨",
-            titleKey: 'tools.removeBg.title',
-            descKey: 'tools.removeBg.desc',
-            link: "/remove-bg",
-            isComingSoon: false
-        },
-        {
-            icon: "🔍",
-            titleKey: 'tools.upscale.title',
-            descKey: 'tools.upscale.desc',
-            link: "/upscale",
-            isComingSoon: false
-        },
-        {
-            icon: "📱",
-            titleKey: 'tools.qrCode.title',
-            descKey: 'tools.qrCode.desc',
-            link: "/qr-code",
-            isComingSoon: false
-        },
+        { icon: "\uD83D\uDDDC\uFE0F", titleKey: 'tools.compress.title', descKey: 'tools.compress.desc', link: "/compress", isComingSoon: false },
+        { icon: "\uD83D\uDD04", titleKey: 'tools.convert.title', descKey: 'tools.convert.desc', link: "/convert", isComingSoon: false },
+        { icon: "\uD83D\uDD2D", titleKey: 'tools.resize.title', descKey: 'tools.resize.desc', link: "/resize", isComingSoon: false },
+        { icon: "\uD83D\uDCC4", titleKey: 'tools.pdfMerge.title', descKey: 'tools.pdfMerge.desc', link: "/pdf-merge", isComingSoon: false },
+        { icon: "\u2702\uFE0F", titleKey: 'tools.pdfSplit.title', descKey: 'tools.pdfSplit.desc', link: "/pdf-split", isComingSoon: false },
+        { icon: "\uD83D\uDCC9", titleKey: 'tools.pdfCompress.title', descKey: 'tools.pdfCompress.desc', link: "/pdf-compress", isComingSoon: false },
+        { icon: "\uD83D\uDDBC\uFE0F", titleKey: 'tools.removeBg.title', descKey: 'tools.removeBg.desc', link: "/remove-bg", isComingSoon: false },
+        { icon: "\uD83D\uDD0D", titleKey: 'tools.upscale.title', descKey: 'tools.upscale.desc', link: "/upscale", isComingSoon: false },
+        { icon: "\uD83D\uDCF1", titleKey: 'tools.qrCode.title', descKey: 'tools.qrCode.desc', link: "/qr-code", isComingSoon: false },
+        { icon: "\uD83D\uDD10", titleKey: 'tools.passwordGen.title', descKey: 'tools.passwordGen.desc', link: "/password-generator", isComingSoon: false },
     ];
 
     return (
         <div className="w-full">
             <Helmet>
-                <title>{locale === 'ko' ? '뚝딱 - 무료 온라인 이미지 압축, 변환, PDF 도구' : 'TookTak - Free Online Image Compression, Conversion & PDF Tools'}</title>
-                <meta name="description" content={locale === 'ko' ? '이미지 압축, 포맷 변환, 크기 조절, PDF 합치기, 나누기, 압축, QR코드 생성까지. 100% 무료, 브라우저에서 바로 처리. 서버 업로드 없이 안전하게.' : 'Compress, convert, resize images. Merge, split, compress PDFs. Generate QR codes. 100% free, browser-based. No server upload.'} />
-                <meta property="og:title" content={locale === 'ko' ? '뚝딱 - 무료 온라인 이미지 & PDF 도구' : 'TookTak - Free Online Image & PDF Tools'} />
-                <meta property="og:description" content={locale === 'ko' ? '이미지 압축, 변환, PDF 편집 등 무료 온라인 도구' : 'Free online tools for images and PDFs'} />
+                <title>{locale === 'ko' ? '\uB69D\uB531 - \uBB34\uB8CC \uC628\uB77C\uC778 \uC774\uBBF8\uC9C0 \uC555\uCD95, \uBCC0\uD658, PDF \uB3C4\uAD6C' : 'TookTak - Free Online Image Compression, Conversion & PDF Tools'}</title>
+                <meta name="description" content={locale === 'ko' ? '\uC774\uBBF8\uC9C0 \uC555\uCD95, \uD3EC\uB9F7 \uBCC0\uD658, \uD06C\uAE30 \uC870\uC808, PDF \uD569\uCE58\uAE30, \uB098\uB204\uAE30, \uC555\uCD95, QR\uCF54\uB4DC \uC0DD\uC131\uAE4C\uC9C0. 100% \uBB34\uB8CC, \uBE0C\uB77C\uC6B0\uC800\uC5D0\uC11C \uBC14\uB85C \uCC98\uB9AC. \uC11C\uBC84 \uC5C5\uB85C\uB4DC \uC5C6\uC774 \uC548\uC804\uD558\uAC8C.' : 'Compress, convert, resize images. Merge, split, compress PDFs. Generate QR codes. 100% free, browser-based. No server upload.'} />
+                <meta property="og:title" content={locale === 'ko' ? '\uB69D\uB531 - \uBB34\uB8CC \uC628\uB77C\uC778 \uC774\uBBF8\uC9C0 & PDF \uB3C4\uAD6C' : 'TookTak - Free Online Image & PDF Tools'} />
+                <meta property="og:description" content={locale === 'ko' ? '\uC774\uBBF8\uC9C0 \uC555\uCD95, \uBCC0\uD658, PDF \uD3B8\uC9D1 \uB4F1 \uBB34\uB8CC \uC628\uB77C\uC778 \uB3C4\uAD6C' : 'Free online tools for images and PDFs'} />
                 <meta property="og:url" content="https://tooktak.pages.dev/" />
                 <meta property="og:type" content="website" />
                 <link rel="canonical" href="https://tooktak.pages.dev/" />
             </Helmet>
 
-            {/* Top Ad */}
             <div className="w-full mb-10">
                 <AdPlaceholder id="home-top" showCoupang={true} />
             </div>
 
-            {/* Hero Section */}
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 mb-4 py-2">
                     {t('home.title')}
@@ -107,11 +50,9 @@ const HomePage = () => {
                 </p>
             </div>
 
-            {/* Tools Grid Section */}
             <div className="max-w-7xl mx-auto">
                 <div className="lg:col-span-8">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-8 text-center lg:text-left">{t('home.toolsTitle')}</h2>
-
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {tools.map((tool, index) => (
                             <ToolCard
@@ -130,17 +71,11 @@ const HomePage = () => {
                 </div>
             </div>
 
-            {/* SEO Text Section */}
             <div className="bg-gray-50 rounded-2xl p-6 mt-12">
-                <h2 className="text-lg font-bold text-gray-800 mb-3">{locale === 'ko' ? '뚝딱 - 무료 온라인 파일 도구' : 'TookTak - Free Online File Tools'}</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                    {locale === 'ko'
-                        ? '뚝딱은 이미지 압축, 이미지 포맷 변환, 이미지 크기 조절, PDF 합치기, PDF 나누기, PDF 압축, QR코드 생성, AI 배경 제거, AI 화질 개선 등 다양한 무료 온라인 도구를 제공합니다. 모든 파일은 사용자의 브라우저에서 직접 처리되어 서버에 업로드되지 않으므로 개인정보가 안전하게 보호됩니다. 회원가입 없이 누구나 무료로 이용할 수 있으며, JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC 등 다양한 이미지 포맷을 지원합니다.'
-                        : 'TookTak provides free online tools including image compression, format conversion, resizing, PDF merge, split, compress, QR code generation, AI background removal, and AI image upscaling. All files are processed directly in your browser — never uploaded to any server — ensuring complete privacy. No signup required, supporting JPG, PNG, WEBP, GIF, BMP, AVIF, TIFF, HEIC and more.'}
-                </p>
+                <h2 className="text-lg font-bold text-gray-800 mb-3">{locale === 'ko' ? '\uB69D\uB531 - \uBB34\uB8CC \uC628\uB77C\uC778 \uD30C\uC77C \uB3C4\uAD6C' : 'TookTak - Free Online File Tools'}</h2>
+                <p className="text-sm text-gray-600 leading-relaxed">{t('home.seoText')}</p>
             </div>
 
-            {/* Bottom Ad */}
             <div className="w-full mt-10">
                 <AdPlaceholder id="home-bottom" showCoupang={true} />
             </div>

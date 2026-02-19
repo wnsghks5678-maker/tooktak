@@ -1,6 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AdsterraSocialBar from './components/AdsterraSocialBar';
@@ -18,6 +18,7 @@ const PdfCompressPage = lazy(() => import('./pages/PdfCompressPage'));
 const QrCodePage = lazy(() => import('./pages/QrCodePage'));
 const RemoveBgPage = lazy(() => import('./pages/RemoveBgPage'));
 const UpscalePage = lazy(() => import('./pages/UpscalePage'));
+const PasswordGeneratorPage = lazy(() => import('./pages/PasswordGeneratorPage'));
 
 function AppContent() {
   return (
@@ -49,7 +50,8 @@ function AppContent() {
               <Route path="/qr-code" element={<QrCodePage />} />
               <Route path="/remove-bg" element={<RemoveBgPage />} />
               <Route path="/upscale" element={<UpscalePage />} />
-              <Route path="*" element={<HomePage />} />
+              <Route path="/password-generator" element={<PasswordGeneratorPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Suspense>
         </main>

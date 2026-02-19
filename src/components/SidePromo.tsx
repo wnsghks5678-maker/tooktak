@@ -29,73 +29,100 @@ const PromoCard = ({ to, icon, title, desc, buttonText, gradient }: PromoCardPro
     );
 };
 
-// Hardcoded data for SidePromo
-const cardData = {
+interface PromoItem {
+    icon: string;
+    title: string;
+    desc: string;
+    path: string;
+    gradient: string;
+}
+
+interface LocaleData {
+    items: PromoItem[];
+    buttonText: string;
+}
+
+const cardData: Record<string, LocaleData> = {
     ko: {
         items: [
-            { icon: '🗜️', title: '이미지 압축', desc: '사진 용량 줄이기', path: '/compress', gradient: 'from-blue-500 to-blue-700' },
-            { icon: '🔄', title: '이미지 변환', desc: '포맷 자유롭게 변환', path: '/convert', gradient: 'from-green-500 to-green-700' },
-            { icon: '📐', title: '크기 조절', desc: '원하는 크기로 리사이즈', path: '/resize', gradient: 'from-purple-500 to-purple-700' },
-            { icon: '📱', title: 'QR코드 생성', desc: 'QR코드 만들기', path: '/qr-code', gradient: 'from-orange-500 to-orange-700' },
+            { icon: '\uD83D\uDDDC', title: '\uC774\uBBF8\uC9C0 \uC555\uCD95', desc: '\uC0AC\uC9C4 \uC6A9\uB7C9 \uC904\uC774\uAE30', path: '/compress', gradient: 'from-blue-500 to-blue-700' },
+            { icon: '\uD83D\uDD04', title: '\uC774\uBBF8\uC9C0 \uBCC0\uD658', desc: '\uD3EC\uB9F7 \uC790\uC720\uB85C\uC6B4 \uBCC0\uD658', path: '/convert', gradient: 'from-green-500 to-green-700' },
+            { icon: '\uD83D\uDD2D', title: '\uD06C\uAE30 \uC870\uC808', desc: '\uC6D0\uD558\uB294 \uD06C\uAE30\uB85C \uB9AC\uC0AC\uC774\uC988', path: '/resize', gradient: 'from-purple-500 to-purple-700' },
+            { icon: '\uD83D\uDCF1', title: 'QR\uCF54\uB4DC \uC0DD\uC131', desc: 'QR\uCF54\uB4DC \uB9CC\uB4E4\uAE30', path: '/qr-code', gradient: 'from-orange-500 to-orange-700' },
+            { icon: '\uD83D\uDCC4', title: 'PDF \uBCD1\uD569', desc: '\uC5EC\uB7EC PDF\uB97C \uD558\uB098\uB85C', path: '/pdf-merge', gradient: 'from-orange-500 to-red-500' },
+            { icon: '\u2702\uFE0F', title: 'PDF \uB098\uB204\uAE30', desc: '\uC6D0\uD558\uB294 \uD398\uC774\uC9C0\uB9CC', path: '/pdf-split', gradient: 'from-blue-500 to-indigo-500' },
+            { icon: '\uD83D\uDCC9', title: 'PDF \uC555\uCD95', desc: '\uC6A9\uB7C9 \uC904\uC774\uAE30', path: '/pdf-compress', gradient: 'from-green-500 to-teal-500' },
+            { icon: '\uD83D\uDDBC', title: '\uBC30\uACBD \uC81C\uAC70', desc: '\uC790\uB3D9 \uBC30\uACBD \uC81C\uAC70', path: '/remove-bg', gradient: 'from-purple-500 to-pink-500' },
+            { icon: '\uD83D\uDD10', title: '\uBE44\uBC00\uBC88\uD638 \uC0DD\uC131', desc: '\uAC15\uB825\uD55C \uBE44\uBC00\uBC88\uD638', path: '/password-generator', gradient: 'from-red-500 to-red-700' },
         ],
-        buttonText: '바로가기'
+        buttonText: '\uBC14\uB85C\uAC00\uAE30'
     },
     en: {
         items: [
-            { icon: '🗜️', title: 'Compress', desc: 'Reduce image size', path: '/compress', gradient: 'from-blue-500 to-blue-700' },
-            { icon: '🔄', title: 'Convert', desc: 'Change image format', path: '/convert', gradient: 'from-green-500 to-green-700' },
-            { icon: '📐', title: 'Resize', desc: 'Resize images', path: '/resize', gradient: 'from-purple-500 to-purple-700' },
-            { icon: '📱', title: 'QR Code', desc: 'Generate QR codes', path: '/qr-code', gradient: 'from-orange-500 to-orange-700' },
+            { icon: '\uD83D\uDDDC', title: 'Compress', desc: 'Reduce image size', path: '/compress', gradient: 'from-blue-500 to-blue-700' },
+            { icon: '\uD83D\uDD04', title: 'Convert', desc: 'Change image format', path: '/convert', gradient: 'from-green-500 to-green-700' },
+            { icon: '\uD83D\uDD2D', title: 'Resize', desc: 'Resize images', path: '/resize', gradient: 'from-purple-500 to-purple-700' },
+            { icon: '\uD83D\uDCF1', title: 'QR Code', desc: 'Generate QR codes', path: '/qr-code', gradient: 'from-orange-500 to-orange-700' },
+            { icon: '\uD83D\uDCC4', title: 'Merge PDF', desc: 'Combine PDFs', path: '/pdf-merge', gradient: 'from-orange-500 to-red-500' },
+            { icon: '\u2702\uFE0F', title: 'Split PDF', desc: 'Extract pages', path: '/pdf-split', gradient: 'from-blue-500 to-indigo-500' },
+            { icon: '\uD83D\uDCC9', title: 'Compress PDF', desc: 'Reduce size', path: '/pdf-compress', gradient: 'from-green-500 to-teal-500' },
+            { icon: '\uD83D\uDDBC', title: 'Remove BG', desc: 'Transparent BG', path: '/remove-bg', gradient: 'from-purple-500 to-pink-500' },
+            { icon: '\uD83D\uDD10', title: 'Password', desc: 'Strong passwords', path: '/password-generator', gradient: 'from-red-500 to-red-700' },
         ],
         buttonText: 'Go'
     },
     zh: {
         items: [
-            { icon: '🗜️', title: '图片压缩', desc: '缩小图片大小', path: '/compress', gradient: 'from-blue-500 to-blue-700' },
-            { icon: '🔄', title: '图片转换', desc: '转换图片格式', path: '/convert', gradient: 'from-green-500 to-green-700' },
-            { icon: '📐', title: '调整大小', desc: '调整图片尺寸', path: '/resize', gradient: 'from-purple-500 to-purple-700' },
-            { icon: '📱', title: 'QR生成器', desc: '创建QR码', path: '/qr-code', gradient: 'from-orange-500 to-orange-700' },
+            { icon: '\uD83D\uDDDC', title: '\u56FE\u7247\u538B\u7F29', desc: '\u51CF\u5C0F\u56FE\u7247\u5927\u5C0F', path: '/compress', gradient: 'from-blue-500 to-blue-700' },
+            { icon: '\uD83D\uDD04', title: '\u56FE\u7247\u8F6C\u6362', desc: '\u8F6C\u6362\u56FE\u7247\u683C\u5F0F', path: '/convert', gradient: 'from-green-500 to-green-700' },
+            { icon: '\uD83D\uDD2D', title: '\u8C03\u6574\u5927\u5C0F', desc: '\u8C03\u6574\u56FE\u7247\u5C3A\u5BF8', path: '/resize', gradient: 'from-purple-500 to-purple-700' },
+            { icon: '\uD83D\uDCF1', title: 'QR\u7801\u751F\u6210', desc: '\u521B\u5EFAQR\u7801', path: '/qr-code', gradient: 'from-orange-500 to-orange-700' },
+            { icon: '\uD83D\uDCC4', title: '\u5408\u5E76PDF', desc: '\u5408\u5E76\u6587\u4EF6', path: '/pdf-merge', gradient: 'from-orange-500 to-red-500' },
+            { icon: '\u2702\uFE0F', title: '\u62C6\u5206PDF', desc: '\u63D0\u53D6\u9875\u9762', path: '/pdf-split', gradient: 'from-blue-500 to-indigo-500' },
+            { icon: '\uD83D\uDCC9', title: '\u538B\u7F29PDF', desc: '\u51CF\u5C0F\u5927\u5C0F', path: '/pdf-compress', gradient: 'from-green-500 to-teal-500' },
+            { icon: '\uD83D\uDDBC', title: '\u53BB\u80CC\u666F', desc: '\u81EA\u52A8\u53BB\u80CC\u666F', path: '/remove-bg', gradient: 'from-purple-500 to-pink-500' },
+            { icon: '\uD83D\uDD10', title: '\u5BC6\u7801\u751F\u6210', desc: '\u5F3A\u5BC6\u7801', path: '/password-generator', gradient: 'from-red-500 to-red-700' },
         ],
-        buttonText: '前往'
+        buttonText: '\u524D\u5F80'
     },
     ja: {
         items: [
-            { icon: '🗜️', title: '画像圧縮', desc: '画像サイズを縮小', path: '/compress', gradient: 'from-blue-500 to-blue-700' },
-            { icon: '🔄', title: '画像変換', desc: 'フォーマットを変換', path: '/convert', gradient: 'from-green-500 to-green-700' },
-            { icon: '📐', title: 'サイズ変更', desc: '画像サイズ変更', path: '/resize', gradient: 'from-purple-500 to-purple-700' },
-            { icon: '📱', title: 'QRコード', desc: 'QRコード作成', path: '/qr-code', gradient: 'from-orange-500 to-orange-700' },
+            { icon: '\uD83D\uDDDC', title: '\u753B\u50CF\u5727\u7E2E', desc: '\u30D5\u30A1\u30A4\u30EB\u30B5\u30A4\u30BA\u7E2E\u5C0F', path: '/compress', gradient: 'from-blue-500 to-blue-700' },
+            { icon: '\uD83D\uDD04', title: '\u753B\u50CF\u5909\u63DB', desc: '\u30D5\u30A9\u30FC\u30DE\u30C3\u30C8\u5909\u63DB', path: '/convert', gradient: 'from-green-500 to-green-700' },
+            { icon: '\uD83D\uDD2D', title: '\u30EA\u30B5\u30A4\u30BA', desc: '\u30B5\u30A4\u30BA\u8ABF\u6574', path: '/resize', gradient: 'from-purple-500 to-purple-700' },
+            { icon: '\uD83D\uDCF1', title: 'QR\u30B3\u30FC\u30C9', desc: 'QR\u30B3\u30FC\u30C9\u751F\u6210', path: '/qr-code', gradient: 'from-orange-500 to-orange-700' },
+            { icon: '\uD83D\uDCC4', title: 'PDF\u7D50\u5408', desc: '\u8907\u6570PDF\u3092\u7D50\u5408', path: '/pdf-merge', gradient: 'from-orange-500 to-red-500' },
+            { icon: '\u2702\uFE0F', title: 'PDF\u5206\u5272', desc: '\u30DA\u30FC\u30B8\u62BD\u51FA', path: '/pdf-split', gradient: 'from-blue-500 to-indigo-500' },
+            { icon: '\uD83D\uDCC9', title: 'PDF\u5727\u7E2E', desc: '\u30B5\u30A4\u30BA\u7E2E\u5C0F', path: '/pdf-compress', gradient: 'from-green-500 to-teal-500' },
+            { icon: '\uD83D\uDDBC', title: '\u80CC\u666F\u9664\u53BB', desc: '\u81EA\u52D5\u80CC\u666F\u9664\u53BB', path: '/remove-bg', gradient: 'from-purple-500 to-pink-500' },
+            { icon: '\uD83D\uDD10', title: '\u30D1\u30B9\u30EF\u30FC\u30C9', desc: '\u5F37\u529B\u30D1\u30B9\u30EF\u30FC\u30C9', path: '/password-generator', gradient: 'from-red-500 to-red-700' },
         ],
-        buttonText: '詳細'
+        buttonText: '\u79FB\u52D5'
     }
 };
 
 const SidePromo = () => {
     const { locale } = useTranslation();
     const location = useLocation();
+    const currentPath = location.pathname;
 
-    // Fallback to English if locale not found
-    const currentData = cardData[locale as keyof typeof cardData] || cardData.en;
-    const items = currentData.items;
-    const buttonText = currentData.buttonText;
+    const data = cardData[locale] || cardData['en'];
+    const filtered = data.items.filter(item => item.path !== currentPath);
+    const displayed = filtered.slice(0, 3);
 
     return (
-        <div className="flex flex-col gap-3 w-full">
-            {items.map((item) => {
-                // Filter out current page
-                if (location.pathname === item.path) return null;
-
-                return (
-                    <PromoCard
-                        key={item.path}
-                        to={item.path}
-                        icon={item.icon}
-                        title={item.title}
-                        desc={item.desc}
-                        buttonText={buttonText}
-                        gradient={item.gradient}
-                    />
-                );
-            })}
+        <div className="space-y-4">
+            {displayed.map((item, idx) => (
+                <PromoCard
+                    key={idx}
+                    to={item.path}
+                    icon={item.icon}
+                    title={item.title}
+                    desc={item.desc}
+                    buttonText={data.buttonText}
+                    gradient={item.gradient}
+                />
+            ))}
         </div>
     );
 };

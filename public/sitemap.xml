@@ -36,6 +36,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tooktak.pages.dev/upscale</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tooktak.pages.dev/password-generator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://tooktak.pages.dev/qr-code</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
