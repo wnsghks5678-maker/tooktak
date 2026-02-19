@@ -8,11 +8,9 @@ export async function removeBackground(
 
     try {
         const result = await imglyRemoveBackground(imageUrl, {
+            publicPath: 'https://unpkg.com/@imgly/background-removal@1.7.0/dist/',
             progress: (_key: string, current: number, total: number) => {
                 if (onProgress && total > 0) {
-                    // Normalize progress to 0-100
-                    // The library might report progress in different stages (fetch, compute, etc)
-                    // For simplicity, we just pass the percentage if available
                     const percent = Math.round((current / total) * 100);
                     onProgress(percent);
                 }
@@ -53,11 +51,8 @@ export async function addColorBackground(
                 return;
             }
 
-            // Fill background
             ctx.fillStyle = color;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Draw image
             ctx.drawImage(img, 0, 0);
 
             URL.revokeObjectURL(url);
