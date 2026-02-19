@@ -23,6 +23,7 @@ const HomePage = () => {
         { icon: "\uD83D\uDD0D", titleKey: 'tools.upscale.title', descKey: 'tools.upscale.desc', link: "/upscale", isComingSoon: false },
         { icon: "\uD83D\uDCF1", titleKey: 'tools.qrCode.title', descKey: 'tools.qrCode.desc', link: "/qr-code", isComingSoon: false },
         { icon: "\uD83D\uDD10", titleKey: 'tools.passwordGen.title', descKey: 'tools.passwordGen.desc', link: "/password-generator", isComingSoon: false },
+        { icon: "\uD83C\uDFAC", titleKey: 'tools.videoToGif.title', descKey: 'tools.videoToGif.desc', link: "/video-to-gif", isComingSoon: false },
     ];
 
     return (

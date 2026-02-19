@@ -54,6 +54,7 @@ const cardData: Record<string, LocaleData> = {
             { icon: '\uD83D\uDCC9', title: 'PDF \uC555\uCD95', desc: '\uC6A9\uB7C9 \uC904\uC774\uAE30', path: '/pdf-compress', gradient: 'from-green-500 to-teal-500' },
             { icon: '\uD83D\uDDBC', title: '\uBC30\uACBD \uC81C\uAC70', desc: '\uC790\uB3D9 \uBC30\uACBD \uC81C\uAC70', path: '/remove-bg', gradient: 'from-purple-500 to-pink-500' },
             { icon: '\uD83D\uDD10', title: '\uBE44\uBC00\uBC88\uD638 \uC0DD\uC131', desc: '\uAC15\uB825\uD55C \uBE44\uBC00\uBC88\uD638', path: '/password-generator', gradient: 'from-red-500 to-red-700' },
+            { icon: '\uD83C\uDFAC', title: 'Video to GIF', desc: '\uB3D9\uC601\uC0C1 GIF \uBCC0\uD658', path: '/video-to-gif', gradient: 'from-pink-500 to-rose-700' },
         ],
         buttonText: '\uBC14\uB85C\uAC00\uAE30'
     },
@@ -68,6 +69,7 @@ const cardData: Record<string, LocaleData> = {
             { icon: '\uD83D\uDCC9', title: 'Compress PDF', desc: 'Reduce size', path: '/pdf-compress', gradient: 'from-green-500 to-teal-500' },
             { icon: '\uD83D\uDDBC', title: 'Remove BG', desc: 'Transparent BG', path: '/remove-bg', gradient: 'from-purple-500 to-pink-500' },
             { icon: '\uD83D\uDD10', title: 'Password', desc: 'Strong passwords', path: '/password-generator', gradient: 'from-red-500 to-red-700' },
+            { icon: '\uD83C\uDFAC', title: 'Video to GIF', desc: 'Convert to GIF', path: '/video-to-gif', gradient: 'from-pink-500 to-rose-700' },
         ],
         buttonText: 'Go'
     },

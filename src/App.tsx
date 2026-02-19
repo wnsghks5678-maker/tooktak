@@ -19,6 +19,7 @@ const QrCodePage = lazy(() => import('./pages/QrCodePage'));
 const RemoveBgPage = lazy(() => import('./pages/RemoveBgPage'));
 const UpscalePage = lazy(() => import('./pages/UpscalePage'));
 const PasswordGeneratorPage = lazy(() => import('./pages/PasswordGeneratorPage'));
+const VideoToGifPage = lazy(() => import('./pages/VideoToGifPage'));
 
 function AppContent() {
   return (
@@ -51,6 +52,7 @@ function AppContent() {
               <Route path="/remove-bg" element={<RemoveBgPage />} />
               <Route path="/upscale" element={<UpscalePage />} />
               <Route path="/password-generator" element={<PasswordGeneratorPage />} />
+              <Route path="/video-to-gif" element={<VideoToGifPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Suspense>
