@@ -8,7 +8,7 @@ export async function removeBackground(
 
     try {
         const result = await imglyRemoveBackground(imageUrl, {
-            publicPath: 'https://unpkg.com/@imgly/background-removal@1.7.0/dist/',
+            model: 'isnet_fp16',
             progress: (_key: string, current: number, total: number) => {
                 if (onProgress && total > 0) {
                     const percent = Math.round((current / total) * 100);
