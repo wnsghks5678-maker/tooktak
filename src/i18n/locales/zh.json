@@ -121,6 +121,8 @@
                         "faq3a":  "使用加密安全的随机生成器(crypto.getRandomValues)，重复的概率几乎为零。"
                     },
     "tools":  {
+            "watermarkRemove": { "title": "去水印", "desc": "从图片中去除水印" },
+            "watermark": { "title": "图片水印", "desc": "添加文字或Logo水印" },
                   "compress":  {
                                    "title":  "图片压缩",
                                    "desc":  "减小图片文件大小"
@@ -164,7 +166,8 @@
                   "videoToGif":  {
                                      "title":  "Video to GIF",
                                      "desc":  "\\u89c6\\u9891\\u8f6c\\u6362\\u4e3aGIF"
-                                 }
+                                 },
+    "ocr": { "title": "OCR\u6587\u5b57\u63d0\u53d6", "desc": "\u4ece\u56fe\u7247\u63d0\u53d6\u6587\u5b57" }
               },
     "footer":  {
                    "slogan":  "文件任务，轻松搞定。",
@@ -430,5 +433,61 @@
     "enableCrop": "启用裁剪",
     "disableCrop": "关闭裁剪",
     "selectedTime": "选择区间: {{start}}秒 - {{end}}秒 ({{duration}}秒)"
-  }
+  },
+  "ocr": {
+    "title": "图片文字提取 (OCR)",
+    "subtitle": "自动识别并提取图片中的文字。100%浏览器处理！",
+    "upload": "拖放图片或点击选择",
+    "uploadHint": "JPG, PNG, WEBP, BMP, GIF - 最大10MB - 1个文件",
+    "language": "识别语言",
+    "langKo": "韩语",
+    "langEn": "英语",
+    "langJa": "日语",
+    "langZh": "中文",
+    "startOcr": "开始提取文字",
+    "processing": "正在识别文字...",
+    "processingDetail": "首次运行可能需要时间下载语言数据。",
+    "complete": "文字提取完成！",
+    "result": "提取的文字",
+    "copy": "复制文字",
+    "copied": "已复制！",
+    "download": "下载TXT",
+    "retry": "尝试其他图片",
+    "noText": "无法识别文字。",
+    "confidence": "识别准确度",
+    "faqTitle": "常见问题",
+    "faq1q": "图片会上传到服务器吗？",
+    "faq1a": "不会。所有文字识别在浏览器中完成。",
+    "faq2q": "支持哪些语言？",
+    "faq2a": "支持韩语、英语、日语、中文。",
+    "faq3q": "识别准确度如何？",
+    "faq3a": "清晰文字图片可达90%以上准确度。手写或模糊图片准确度可能较低。"
+  },
+    "watermark": {
+        "title": "图片水印",
+        "subtitle": "使用文字或Logo水印保护您的图片",
+        "settings": "水印设置",
+        "textMode": "文字",
+        "imageMode": "图片",
+        "textPlaceholder": "输入水印文字",
+        "fontSize": "字体大小",
+        "opacity": "透明度",
+        "rotation": "旋转",
+        "position": "位置",
+        "tiled": "平铺",
+        "apply": "应用水印",
+        "download": "下载",
+        "downloadAll": "全部下载",
+        "reset": "重置",
+        "preview": "预览",
+        "uploadLogo": "上传Logo图片",
+        "processing": "处理中...",
+        "complete": "完成!",
+        "faq1q": "什么是水印？",
+        "faq1a": "水印是放置在图片上的半透明文字或Logo，用于保护版权。",
+        "faq2q": "我的图片会上传到服务器吗？",
+        "faq2a": "不会。所有处理都在浏览器中完成，不会上传任何内容。",
+        "faq3q": "可以同时给多张图片添加水印吗？",
+        "faq3a": "可以，最多可以同时给5张图片添加水印。"
+    }
 }

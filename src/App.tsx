@@ -20,6 +20,9 @@ const RemoveBgPage = lazy(() => import('./pages/RemoveBgPage'));
 const UpscalePage = lazy(() => import('./pages/UpscalePage'));
 const PasswordGeneratorPage = lazy(() => import('./pages/PasswordGeneratorPage'));
 const VideoToGifPage = lazy(() => import('./pages/VideoToGifPage'));
+const OcrPage = lazy(() => import('./pages/OcrPage'));
+const WatermarkPage = lazy(() => import('./pages/WatermarkPage'));
+const WatermarkRemovePage = lazy(() => import('./pages/WatermarkRemovePage'));
 
 function AppContent() {
   return (
@@ -53,6 +56,9 @@ function AppContent() {
               <Route path="/upscale" element={<UpscalePage />} />
               <Route path="/password-generator" element={<PasswordGeneratorPage />} />
               <Route path="/video-to-gif" element={<VideoToGifPage />} />
+              <Route path="/ocr" element={<OcrPage />} />
+              <Route path="/watermark-remove" element={<WatermarkRemovePage />} />
+              <Route path="/watermark" element={<WatermarkPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Suspense>

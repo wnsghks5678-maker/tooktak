@@ -155,6 +155,8 @@
     "disableCrop": "자르기 끄기"
   },
   "tools": {
+            "watermarkRemove": { "title": "워터마크 제거", "desc": "이미지에서 워터마크 제거" },
+            "watermark": { "title": "이미지 워터마크", "desc": "텍스트/로고 워터마크 추가" },
     "compress": {
       "title": "이미지 압축",
       "desc": "이미지 용량 줄이기"
@@ -198,7 +200,8 @@
     "videoToGif": {
       "title": "Video to GIF",
       "desc": "동영상을 GIF로 변환"
-    }
+    },
+    "ocr": { "title": "OCR \ud14d\uc2a4\ud2b8 \ucd94\ucd9c", "desc": "\uc774\ubbf8\uc9c0\uc5d0\uc11c \ud14d\uc2a4\ud2b8 \uc778\uc2dd" }
   },
   "footer": {
     "slogan": "파일 작업, 뚝딱.",
@@ -404,5 +407,61 @@
     "banner5Desc": "한 곳에서 무료로",
     "banner6Title": "뚝딱 - 파일 작업, 뚝딱.",
     "banner6Desc": "무료 이미지, PDF, AI 도구"
-  }
+  },
+  "ocr": {
+    "title": "이미지 텍스트 추출 (OCR)",
+    "subtitle": "이미지에서 텍스트를 자동으로 인식하여 추출합니다. 100% 브라우저 처리!",
+    "upload": "이미지를 드래그하거나 클릭해서 선택",
+    "uploadHint": "JPG, PNG, WEBP, BMP, GIF · 최대 10MB · 1개 파일",
+    "language": "인식 언어",
+    "langKo": "한국어",
+    "langEn": "영어",
+    "langJa": "일본어",
+    "langZh": "중국어",
+    "startOcr": "텍스트 추출 시작",
+    "processing": "텍스트 인식 중...",
+    "processingDetail": "처음 실행 시 언어 데이터 다운로드에 시간이 걸릴 수 있습니다.",
+    "complete": "텍스트 추출 완료!",
+    "result": "추출된 텍스트",
+    "copy": "텍스트 복사",
+    "copied": "복사됨!",
+    "download": "TXT 다운로드",
+    "retry": "다른 이미지 시도",
+    "noText": "텍스트를 인식할 수 없습니다.",
+    "confidence": "인식 정확도",
+    "faqTitle": "자주 묻는 질문",
+    "faq1q": "이미지가 서버에 업로드되나요?",
+    "faq1a": "아니요. 모든 텍스트 인식은 브라우저에서 처리되며 파일은 서버로 전송되지 않습니다.",
+    "faq2q": "어떤 언어를 인식할 수 있나요?",
+    "faq2a": "한국어, 영어, 일본어, 중국어를 지원합니다.",
+    "faq3q": "인식 정확도는 어떤가요?",
+    "faq3a": "선명한 텍스트 이미지에서 90% 이상의 정확도를 보입니다. 손글씨나 흐린 이미지는 정확도가 낮을 수 있습니다."
+  },
+    "watermark": {
+        "title": "이미지 워터마크",
+        "subtitle": "텍스트 또는 로고 워터마크로 이미지를 보호하세요",
+        "settings": "워터마크 설정",
+        "textMode": "텍스트",
+        "imageMode": "이미지",
+        "textPlaceholder": "워터마크 텍스트 입력",
+        "fontSize": "글자 크기",
+        "opacity": "투명도",
+        "rotation": "회전",
+        "position": "위치",
+        "tiled": "타일 반복",
+        "apply": "워터마크 적용",
+        "download": "다운로드",
+        "downloadAll": "전체 다운로드",
+        "reset": "초기화",
+        "preview": "미리보기",
+        "uploadLogo": "로고 이미지 업로드",
+        "processing": "처리 중...",
+        "complete": "완료!",
+        "faq1q": "워터마크란 무엇인가요?",
+        "faq1a": "이미지 위에 텍스트나 로고를 반투명하게 삽입하여 저작권을 보호하는 기능입니다.",
+        "faq2q": "이미지가 서버에 업로드되나요?",
+        "faq2a": "아니요. 모든 처리는 브라우저에서 이루어지며 서버에 업로드되지 않습니다.",
+        "faq3q": "여러 이미지에 한번에 적용할 수 있나요?",
+        "faq3a": "네, 최대 5장까지 동시에 워터마크를 적용할 수 있습니다."
+    }
 }

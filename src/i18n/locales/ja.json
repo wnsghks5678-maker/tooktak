@@ -121,6 +121,8 @@
                         "faq3a":  "暗号学的に安全な乱数生成器(crypto.getRandomValues)を使用しており、重複の可能性は実質ゼロです。"
                     },
     "tools":  {
+            "watermarkRemove": { "title": "ウォーターマーク除去", "desc": "画像からウォーターマークを除去" },
+            "watermark": { "title": "画像ウォーターマーク", "desc": "テキスト・ロゴの透かしを追加" },
                   "compress":  {
                                    "title":  "画像圧縮",
                                    "desc":  "画像ファイルサイズを縮小"
@@ -164,7 +166,8 @@
                   "videoToGif":  {
                                      "title":  "Video to GIF",
                                      "desc":  "\\u52d5\\u753b\\u3092GIF\\u306b\\u5909\\u63db"
-                                 }
+                                 },
+    "ocr": { "title": "OCR\u30c6\u30ad\u30b9\u30c8\u62bd\u51fa", "desc": "\u753b\u50cf\u304b\u3089\u30c6\u30ad\u30b9\u30c8\u8a8d\u8b58" }
               },
     "footer":  {
                    "slogan":  "ファイル作業、あっという間に。",
@@ -430,5 +433,61 @@
     "enableCrop": "切り抜き有効",
     "disableCrop": "切り抜き無効",
     "selectedTime": "選択区間: {{start}}秒 - {{end}}秒 ({{duration}}秒)"
-  }
+  },
+  "ocr": {
+    "title": "画像テキスト抽出 (OCR)",
+    "subtitle": "画像からテキストを自動認識・抽出。100%ブラウザ処理！",
+    "upload": "画像をドラッグまたはクリックして選択",
+    "uploadHint": "JPG, PNG, WEBP, BMP, GIF - 最大10MB - 1ファイル",
+    "language": "認識言語",
+    "langKo": "韓国語",
+    "langEn": "英語",
+    "langJa": "日本語",
+    "langZh": "中国語",
+    "startOcr": "テキスト抽出開始",
+    "processing": "テキスト認識中...",
+    "processingDetail": "初回実行時は言語データのダウンロードに時間がかかる場合があります。",
+    "complete": "テキスト抽出完了！",
+    "result": "抽出されたテキスト",
+    "copy": "テキストコピー",
+    "copied": "コピーしました！",
+    "download": "TXTダウンロード",
+    "retry": "他の画像を試す",
+    "noText": "テキストを認識できませんでした。",
+    "confidence": "認識精度",
+    "faqTitle": "よくある質問",
+    "faq1q": "画像はサーバーにアップロードされますか？",
+    "faq1a": "いいえ。全てブラウザで処理されます。",
+    "faq2q": "どの言語に対応？",
+    "faq2a": "韓国語、英語、日本語、中国語に対応。",
+    "faq3q": "認識精度は？",
+    "faq3a": "鮮明なテキスト画像で90%以上の精度。手書きやぼやけた画像は精度が低くなる場合があります。"
+  },
+    "watermark": {
+        "title": "画像ウォーターマーク",
+        "subtitle": "テキストやロゴのウォーターマークで画像を保護",
+        "settings": "ウォーターマーク設定",
+        "textMode": "テキスト",
+        "imageMode": "画像",
+        "textPlaceholder": "ウォーターマークテキストを入力",
+        "fontSize": "フォントサイズ",
+        "opacity": "不透明度",
+        "rotation": "回転",
+        "position": "位置",
+        "tiled": "タイル",
+        "apply": "ウォーターマーク適用",
+        "download": "ダウンロード",
+        "downloadAll": "一括ダウンロード",
+        "reset": "リセット",
+        "preview": "プレビュー",
+        "uploadLogo": "ロゴ画像をアップロード",
+        "processing": "処理中...",
+        "complete": "完了！",
+        "faq1q": "ウォーターマークとは？",
+        "faq1a": "ウォーターマークとは、著作権保護のために画像に配置される半透明のテキストやロゴです。",
+        "faq2q": "画像はサーバーにアップロードされますか？",
+        "faq2a": "いいえ。すべての処理はブラウザ内で行われ、アップロードされません。",
+        "faq3q": "複数の画像に一度にウォーターマークを追加できますか？",
+        "faq3a": "はい、最大5枚まで同時にウォーターマークを追加できます。"
+    }
 }

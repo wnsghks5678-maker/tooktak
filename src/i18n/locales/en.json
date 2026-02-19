@@ -121,6 +121,8 @@
         "faq3a": "We use crypto.getRandomValues, a cryptographically secure random generator. The chance of duplicates is virtually zero."
     },
     "tools": {
+            "watermarkRemove": { "title": "Watermark Remover", "desc": "Remove watermarks from images" },
+            "watermark": { "title": "Image Watermark", "desc": "Add text or logo watermarks" },
         "compress": {
             "title": "Image Compression",
             "desc": "Reduce image file sizes"
@@ -164,7 +166,8 @@
         "videoToGif": {
             "title": "Video to GIF",
             "desc": "Convert videos to GIF"
-        }
+        },
+    "ocr": { "title": "OCR Text Extraction", "desc": "Extract text from images" }
     },
     "footer": {
         "slogan": "File Tasks, Done.",
@@ -404,5 +407,61 @@
         "cropInfo": "Crop: {{width}}x{{height}}",
         "enableCrop": "Enable Crop",
         "disableCrop": "Disable Crop"
+    },
+  "ocr": {
+    "title": "Image Text Extraction (OCR)",
+    "subtitle": "Automatically recognize and extract text from images. 100% browser-based!",
+    "upload": "Drag & drop image or click to select",
+    "uploadHint": "JPG, PNG, WEBP, BMP, GIF - Max 10MB - 1 file",
+    "language": "Recognition Language",
+    "langKo": "Korean",
+    "langEn": "English",
+    "langJa": "Japanese",
+    "langZh": "Chinese",
+    "startOcr": "Start Text Extraction",
+    "processing": "Recognizing text...",
+    "processingDetail": "First run may take time to download language data.",
+    "complete": "Text extraction complete!",
+    "result": "Extracted Text",
+    "copy": "Copy Text",
+    "copied": "Copied!",
+    "download": "Download TXT",
+    "retry": "Try another image",
+    "noText": "No text could be recognized.",
+    "confidence": "Recognition Accuracy",
+    "faqTitle": "FAQ",
+    "faq1q": "Are images uploaded to a server?",
+    "faq1a": "No. All text recognition is done in your browser. Files are never sent to a server.",
+    "faq2q": "What languages are supported?",
+    "faq2a": "Korean, English, Japanese, and Chinese are supported.",
+    "faq3q": "How accurate is the recognition?",
+    "faq3a": "Clear text images achieve over 90% accuracy. Handwriting or blurry images may have lower accuracy."
+  },
+    "watermark": {
+        "title": "Image Watermark",
+        "subtitle": "Protect your images with custom text or logo watermarks",
+        "settings": "Watermark Settings",
+        "textMode": "Text",
+        "imageMode": "Image",
+        "textPlaceholder": "Enter watermark text",
+        "fontSize": "Font Size",
+        "opacity": "Opacity",
+        "rotation": "Rotation",
+        "position": "Position",
+        "tiled": "Tiled",
+        "apply": "Apply Watermark",
+        "download": "Download",
+        "downloadAll": "Download All",
+        "reset": "Reset",
+        "preview": "Preview",
+        "uploadLogo": "Upload Logo Image",
+        "processing": "Processing...",
+        "complete": "Complete!",
+        "faq1q": "What is a watermark?",
+        "faq1a": "A watermark is a semi-transparent text or logo placed on an image to protect copyright.",
+        "faq2q": "Are my images uploaded to a server?",
+        "faq2a": "No. All processing happens in your browser. Nothing is uploaded.",
+        "faq3q": "Can I apply watermarks to multiple images at once?",
+        "faq3a": "Yes, you can apply watermarks to up to 5 images at once."
     }
 }

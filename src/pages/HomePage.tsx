@@ -22,8 +22,11 @@ const HomePage = () => {
         { icon: "\uD83D\uDDBC\uFE0F", titleKey: 'tools.removeBg.title', descKey: 'tools.removeBg.desc', link: "/remove-bg", isComingSoon: false },
         { icon: "\uD83D\uDD0D", titleKey: 'tools.upscale.title', descKey: 'tools.upscale.desc', link: "/upscale", isComingSoon: false },
         { icon: "\uD83D\uDCF1", titleKey: 'tools.qrCode.title', descKey: 'tools.qrCode.desc', link: "/qr-code", isComingSoon: false },
-        { icon: "\uD83D\uDD10", titleKey: 'tools.passwordGen.title', descKey: 'tools.passwordGen.desc', link: "/password-generator", isComingSoon: false },
-        { icon: "\uD83C\uDFAC", titleKey: 'tools.videoToGif.title', descKey: 'tools.videoToGif.desc', link: "/video-to-gif", isComingSoon: false },
+        { icon: "🔐", titleKey: 'tools.passwordGen.title', descKey: 'tools.passwordGen.desc', link: "/password-generator", isComingSoon: false },
+        { icon: "🎬", titleKey: 'tools.videoToGif.title', descKey: 'tools.videoToGif.desc', link: "/video-to-gif", isComingSoon: false },
+        { icon: "📝", titleKey: 'tools.ocr.title', descKey: 'tools.ocr.desc', link: "/ocr", isComingSoon: false },
+        { icon: "\uD83E\uDDF9", titleKey: 'tools.watermarkRemove.title', descKey: 'tools.watermarkRemove.desc', link: "/watermark-remove", isComingSoon: false },
+        { icon: "💧", titleKey: 'tools.watermark.title', descKey: 'tools.watermark.desc', link: "/watermark", isComingSoon: false },
     ];
 
     return (
@@ -54,7 +57,7 @@ const HomePage = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="lg:col-span-8">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-8 text-center lg:text-left">{t('home.toolsTitle')}</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                         {tools.map((tool, index) => (
                             <ToolCard
                                 key={index}
